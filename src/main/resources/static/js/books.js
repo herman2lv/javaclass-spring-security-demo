@@ -1,3 +1,5 @@
+import {prepareCsrfRequestHeaders} from "./util.js";
+
 $(function() {
 	refresh();
 
@@ -37,9 +39,11 @@ $(function() {
 			`);
 		$row.find(".view").on("click", () => window.location.href = `/books/${b.id}`);
 		$row.find(".edit").on("click", () => window.location.href = `/books/${b.id}/edit`);
+		const headers = prepareCsrfRequestHeaders();
 		$row.find(".delete").on("click", () => $.ajax({
 			type: "DELETE",
 			url: `/api/books/${b.id}`,
+			headers,
 			success: refresh
 		}));
 		$tbody.append($row);

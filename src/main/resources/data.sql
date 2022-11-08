@@ -1,9 +1,16 @@
+-- insert into users (username, password, enabled)
+-- values  ('user', 'user', true),
+--         ('admin', 'admin', true),
+--         ('jack', 'jack', true),
+--         ('mike', 'mike', true),
+--         ('nick', 'nick', true);
+
 insert into users (username, password, enabled)
-values  ('user', 'user', true),
-        ('admin', 'admin', true),
-        ('jack', 'jack', true),
-        ('mike', 'mike', true),
-        ('nick', 'nick', true);
+values  ('user', '{bcrypt}$2a$10$AsrchpR2Ui8hVAVej6IqWeYPF/W40l75L3KEiyjXIOJB0QDlVGgoK', true),
+        ('admin', '{bcrypt}$2a$10$lWp7zFA4NSnw9/gimMeIzul09EEoIIRmrbLyCLk/V8uATSR5WNHDe', true),
+        ('jack', '{bcrypt}$2a$10$yCyCZ1GEfioedOeW5lTzU.yR0ywlBWV7BHDLLEFqCqmKt5Qnp8wiW', true),
+        ('mike', '{bcrypt}$2a$10$XMVN9lj7YhZ3ra4ly9sYqeJDEBQf1J/4SNN3fMVIn1WFVnqDkcG66', true),
+        ('nick', '{bcrypt}$2a$10$7y.ohEYEC6VWkSjqmH2qcOvjAN7POx2t6TTYKCMuS4C3VAPm/h7Lu', true);
 
 insert into authorities (username, authority)
 values ('user', 'USER'),

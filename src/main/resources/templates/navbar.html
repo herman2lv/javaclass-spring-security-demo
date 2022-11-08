@@ -1,8 +1,13 @@
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <nav class="navbar" th:fragment="navbar">
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/books">Catalog</a></li>
-        <li><a href="/books/create">Add Book To Catalog</a></li>
+        <li sec:authorize="hasAuthority('ADMIN')"><a href="/books/create">Add Book To Catalog</a></li>
+        <li sec:authorize="isAuthenticated()"><a href="/my-logout">Log Out</a></li>
+        <li sec:authorize="isAnonymous()"><a href="/my-login">Log In</a></li>
     </ul>
 </nav>
+</html>

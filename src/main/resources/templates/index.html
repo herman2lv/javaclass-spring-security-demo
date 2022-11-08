@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <link href="/css/style.css" rel="stylesheet">
@@ -8,6 +10,8 @@
 <body>
 <div th:replace="~{navbar::navbar}"></div>
 <h1>Welcome!</h1>
-<p>Welcome to the bookstore, dear Guest!</p>
+<p>Welcome to the bookstore, dear
+    <span sec:authorize="isAuthenticated()" sec:authentication="name"></span><span sec:authorize="isAnonymous()">Guest</span>!
+</p>
 </body>
 </html>

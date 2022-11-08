@@ -1,5 +1,8 @@
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 15m
 spring:
   data:
     web:
@@ -25,3 +28,7 @@ spring:
   sql:
     init:
       mode: embedded
+  security:
+    user:
+      name: test
+      password: test

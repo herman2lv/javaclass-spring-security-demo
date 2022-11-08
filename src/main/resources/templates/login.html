@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>Log In</title>
+</head>
+<body>
+<div th:replace="~{navbar::navbar}"></div>
+<form class="input-form" action="/my-login" method="post">
+    <div th:if="${param.timeout}" class="error">Session timeout</div>
+    <div th:if="${param.error}" class="error">Invalid credentials</div>
+    <div th:if="${param.logout}" class="success">Successfully logged out</div>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <label for="input-username">Username</label>
+    <input id="input-username" type="text" name="username">
+    <label for="input-password">Password</label>
+    <input id="input-password" type="password" name="password">
+    <button>Log In</button>
+</form>
+</body>
+</html>

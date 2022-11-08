@@ -1,3 +1,5 @@
+import {prepareCsrfRequestHeaders} from "./util.js";
+
 $(function() {
 	const $editBtn = $("button.edit");
 	$editBtn.on("click", sendData);
@@ -9,9 +11,11 @@ $(function() {
 		const isbn = $("#input-isbn").val();
 		const book = {title, author, isbn};
 		const id = $("#input-id").val();
+		const headers = prepareCsrfRequestHeaders();
 		$.ajax({
 			type: "PUT",
 			url: `/api/books/${id}`,
+			headers,
 			data: JSON.stringify(book),
 			success: processUpdated,
 			error: processError,

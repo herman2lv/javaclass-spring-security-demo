@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <link href="/css/style.css" rel="stylesheet">
     <title>Books</title>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta name="_csrf_token" th:content="${_csrf.token}"/>
     <script defer src="/js/jquery-3.6.1.js"></script>
-    <script defer src="/js/books.js"></script>
+    <script type="module" src="/js/books.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar::navbar}"></div>

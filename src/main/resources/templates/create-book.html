@@ -2,7 +2,9 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <script defer src="/js/jquery-3.6.1.js"></script>
-    <script defer src="/js/create-book.js"></script>
+    <script type="module" src="/js/create-book.js"></script>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <meta name="_csrf_token" th:content="${_csrf.token}"/>
     <link href="/css/style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Book</title>
